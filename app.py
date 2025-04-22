@@ -7,7 +7,7 @@ from datetime import datetime
 
 
 # Inicializar aplicación Flask
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 CORS(app)  # Habilitar CORS para todas las rutas
 
 # Ruta para servir los archivos estáticos/frontend
