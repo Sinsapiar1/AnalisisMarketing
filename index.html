@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigador de Nichos para Marketing de Afiliados</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Investigador de Nichos para Marketing de Afiliados</h1>
+            <p>Genera preguntas clave para investigar productos ganadores en tu nicho</p>
+        </header>
+
+        <main>
+            <section class="form-section">
+                <form id="nichoForm">
+                    <div class="form-group">
+                        <label for="nicho">Nicho General*</label>
+                        <input type="text" id="nicho" name="nicho" required value="Salud y Bienestar">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="audiencia">Audiencia Objetivo*</label>
+                        <input type="text" id="audiencia" name="audiencia" required value="Jóvenes y Adultos">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ubicacion">Ubicación (Opcional)</label>
+                        <input type="text" id="ubicacion" name="ubicacion" value="Miami Beach, Florida">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plataforma">Plataforma de Promoción</label>
+                        <input type="text" id="plataforma" name="plataforma" value="Meta Ads">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" id="generarBtn" onclick="generarPreguntas()">
+                            <i class="fas fa-search"></i> Generar Preguntas Clave
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="results-section">
+                <div class="results-header">
+                    <h2>Preguntas Clave para tu Investigación</h2>
+                    <div id="exportButtons" style="display: none;">
+                        <button type="button" onclick="exportarJSON()" class="export-btn">
+                            <i class="fas fa-file-download"></i> Exportar JSON
+                        </button>
+                        <button type="button" onclick="exportarPDF()" class="export-btn">
+                            <i class="fas fa-file-pdf"></i> Exportar PDF
+                        </button>
+                        <button type="button" onclick="exportarTexto()" class="export-btn">
+                            <i class="fas fa-file-alt"></i> Exportar TXT
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Consultando a Gemini, por favor espera...</p>
+                </div>
+                
+                <div id="resultContainer">
+                    <p id="initialMessage">Aquí aparecerán las preguntas generadas...</p>
+                    <div id="questionsList" class="questions-list"></div>
+                </div>
+                
+                <div id="metadata" class="metadata" style="display: none;">
+                    <h3>Información de la consulta:</h3>
+                    <ul id="metadataList"></ul>
+                </div>
+            </section>
+
+            <section class="future-section">
+                <h2>Sugerencias de Nichos y Productos</h2>
+                <p>Esta sección se habilitará en futuras actualizaciones.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Aplicación desarrollada con la API de Gemini &copy; 2025</p>
+        </footer>
+    </div>
+
+    <!-- Agregar jsPDF para exportar a PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
